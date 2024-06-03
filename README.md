@@ -140,7 +140,7 @@ Mit diesen Angaben können die einzelnen Datensätze im YOLO-Format generiert we
 
 ## Schritt für Schritt Anleitung zum Trainieren mit dem Datensatz
 
-1. Clonen des Projekts und installieren der requirements in der venv.
+1. Clonen des Projekts und installieren der requirements in der venv. (z.B. .venv mit Python 3.12.2)
 
 2. Herunterladen des Datensatzes [Stanford dog dataset bei Kaggle](https://www.kaggle.com/datasets/jessicali9530/stanford-dogs-dataset)
 
