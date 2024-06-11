@@ -11,14 +11,13 @@ Dieses Programm ist lizenziert unter der MIT Licence, als Beispiel wurde hierfü
 Unser Ziel ist es, die unterschiedlichen Hunderassen auf einem Foto zu erkennen. Als Beispiel verwenden wir das folgende Bild:
 
 ![Dog detection with the default yolo model](test_dogs.jpg)
-
 Thanks to 'Blue Bird' on [Pexels](https://www.pexels.com/photo/happy-owner-between-bird-dog-and-border-collie-on-meadow-7210349/)
 
-Wenn wir nun das Standard-Model von YOLO auf dem Bild anwenden, erkennt YOLO die einzelnen Hunde auf dem Bild: (dies wird in der Datei [Predict_original_yolo_model.py](Predict_original_yolo_model.py) durchgeführt)
+Wenn wir nun das Standard-Model von YOLO auf dem Bild anwenden, erkennt YOLO die einzelnen Hunde und die Person auf dem Bild: (dies wird in der Datei [Predict_original_yolo_model.py](Predict_original_yolo_model.py) durchgeführt)
 
 ![Dog detection with the default yolo model](result_test_dogs_original_yolo.jpg)
 
-Jedoch möchten wir ein Ergebnis wie folgendes bei der wir nur die einzelnen Hunde und die entsprechenden Hunderassen erkannt haben:
+Jedoch möchten wir ein Ergebnis, bei dem wie im folgenden Bild nur die einzelnen Hunde und die ensprechenden Hunderassen erkannt werden.
 
 ![Dog detection with the custom yolo model](result_test_dogs_custom_yolo.jpg)
 
