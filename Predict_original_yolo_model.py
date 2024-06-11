@@ -3,7 +3,7 @@ from ultralytics import YOLO
 print("Start predicting test dogs with original yolo model")
 
 # Load a model
-model = YOLO("yolov8n.pt")  # pretrained YOLOv8n model
+model = YOLO("yolov8m.pt")  # pretrained YOLOv8n model
 
 # Run batched inference on a list of images
 results = model(["test_dogs.jpg"])  # return a list of Results objects

@@ -3,13 +3,11 @@ from ultralytics import YOLO
 print("Start predicting test dogs with custom yolo model")
 
 # TODO: Anpassen Model
-
 # Load a model
-model = YOLO("runs/detect/train14/weights/best.pt")  # pretrained YOLOv8n model
+model = YOLO("runs/detect/train49/weights/best.pt")  # pretrained YOLOv8n model
 
 # Run batched inference on a list of images
 results = model("test_dogs.jpg")  # return a list of Results objects
-#results = model("n02106030_17662.jpg")  # return a list of Results objects
 
 
 # Process results list

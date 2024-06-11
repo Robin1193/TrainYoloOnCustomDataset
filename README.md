@@ -12,15 +12,15 @@ Unser Ziel ist es, die unterschiedlichen Hunderassen auf einem Foto zu erkennen.
 
 ![Dog detection with the default yolo model](test_dogs.jpg)
 
-Thanks to 'Goochie Poochie Grooming' on [Pexels](https://www.pexels.com/de-de/foto/foto-von-verschiedenen-welpen-3299905/)
+Thanks to 'Blue Bird' on [Pexels](https://www.pexels.com/photo/happy-owner-between-bird-dog-and-border-collie-on-meadow-7210349/)
 
 Wenn wir nun das Standard-Model von YOLO auf dem Bild anwenden, erkennt YOLO die einzelnen Hunde auf dem Bild: (dies wird in der Datei [Predict_original_yolo_model.py](Predict_original_yolo_model.py) durchgeführt)
 
 ![Dog detection with the default yolo model](result_test_dogs_original_yolo.jpg)
 
-Jedoch möchten wir ein Ergebnis wie folgendes:
+Jedoch möchten wir ein Ergebnis wie folgendes bei der wir nur die einzelnen Hunde und die entsprechenden Hunderassen erkannt haben:
 
-![](https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+![Dog detection with the custom yolo model](result_test_dogs_custom_yolo.jpg)
 
 ## Allgemeiner Aufbau der Datensätze
 
@@ -58,52 +58,52 @@ Die Struktur der Test-, Trainings- und Validierungsdatensätze muss eine gewisse
 Ein Datensatz besteht aus einer Bilddatei und einer "Metadaten"-Datei. Die Bilddatei und die "Metadaten"-Datei müssen gleich heißen (die Dateiändung kann natürlich abweichen). Zur Datei "Imag1.jpg" im images-Ordner gehört zum Beispiel die "Image.txt"-Datei im labels-Ordner. Das Bild zum Datensatz ist ein ganz "normales" Bild, die "Metadaten"-Datei muss jedoch eine gewisse struktur aufweißen:
 
 ```
-0 0.43309859154929575 0.448 0.5328638497652582 0.704
+0 0.4666666666666667 0.5427046263345195 0.5253333333333333 0.6619217081850534
 ```
 
 Jede Zeile entspricht einem Objekt in dem jeweiligen Bild und jede Zeile wird folgendermaßen aufgebaut:
 
-0 | 0.43309859154929575 | 0.448 | 0.5328638497652582 | 0.704
+0 | 0.4666666666666667 | 0.5427046263345195 | 0.5253333333333333 | 0.6619217081850534
 -------- | -------- | -------- | -------- | --------
 Klassen-Index  | X-Position (x)  | Y-Position (y) | Breite des Objekts (b)  | Höhe des Objekts (h)
 
-- Kassenindex: Der Index der Klasse des Objekts aus der config.yaml (in diesem Beispiel 0 == 'Gordon_setter')
+- Kassenindex: Der Index der Klasse des Objekts aus der config.yaml (in diesem Beispiel 0 == 'golden_retriever')
 - X-Position: X-Position des Mittelpunkts des Objekts zur relativen Breite des Bildes.
 - Y-Position: X-Position des Mittelpunkts des Objekts zur relativen Breite des Bildes.
 - Breite des Objekts: Die Breite des Objekts relativ zur Breite des Bilder
 - Höhe des Objekts: Die Breite des Objekts relativ zur Höhe des Bilder
 
-![](https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
+![](dog_with_detection_box_for_yolo.jpg)
 
 ### Vorbereiten der eigenen Datensätze
 
-Damit wir wissen was wir an unseren Datensätzen anpassen müssen, schauen wir uns zunächst einen Datensatz aus dem [Stanford dog dataset](https://www.kaggle.com/datasets/jessicali9530/stanford-dogs-dataset) an: (hier n02106030_17662.jpg und n02106030_17662 (Text-Datei))
+Damit wir wissen was wir an unseren Datensätzen anpassen müssen, schauen wir uns zunächst einen Datensatz aus dem [Stanford dog dataset](https://www.kaggle.com/datasets/jessicali9530/stanford-dogs-dataset) an: (hier n02099601_1259.jpg und n02099601_1259 (Text-Datei))
 
-![](n02106030_17662.jpg)
+![](dog_with_detection_box_dataset.jpg)
 
 ```xml
 <annotation>
-	<folder>02106030</folder>
-	<filename>n02106030_17662</filename>
+	<folder>02099601</folder>
+	<filename>n02099601_1259</filename>
 	<source>
 		<database>ImageNet database</database>
 	</source>
 	<size>
-		<width>426</width>
-		<height>500</height>
+		<width>750</width>
+		<height>562</height>
 		<depth>3</depth>
 	</size>
 	<segment>0</segment>
 	<object>
-		<name>collie</name>
+		<name>golden_retriever</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>71</xmin>
-			<ymin>48</ymin>
-			<xmax>298</xmax>
-			<ymax>400</ymax>
+			<xmin>153</xmin>
+			<ymin>119</ymin>
+			<xmax>547</xmax>
+			<ymax>491</ymax>
 		</bndbox>
 	</object>
 </annotation>
@@ -114,7 +114,7 @@ Interesannt für uns sind folgende Informationen aus der Textdatei:
 Parameter | Beschreibung
 -------- | -------- 
 folder   | Der Ordnername in der das Bild gespeichert ist
-filename | Der Dateiname des Bildes (hier n02106030_17662.jpg)
+filename | Der Dateiname des Bildes (hier n02099601_1259.jpg)
 width | Die Breite des Bildes
 height | Die Höhe des Bildes
 object | Die Liste der einzelnen Hunde im Datensatz. In diesem Beispiel ist nur ein Hund im Datensatz, es können jedoch mehrere object-Nodes im Datensatz sein
@@ -125,6 +125,8 @@ xmax | Die X-Koordinate des Objekts (untere Kante des Objekts)
 ymax | Die Y-Koordinate des Objekts (rechte Kante des Objekts)
 
 Die einzelnen Parameter des YOLO-Datensatzes können dann folgendermaßen berechnet werden (siehe [Aufbau eines einzelnen Datensatzes](#aufbau-eines-einzelnen-datensatzes)):
+
+![](dog_with_detection_box_datapoints.jpg)
 
 $ x = \frac{xmin + \frac{(xmax - xmin)}{2} }{width} $
 
@@ -152,5 +154,10 @@ Mit diesen Angaben können die einzelnen Datensätze im YOLO-Format generiert we
 
 6. Überprüfen des Trainingsergebnis mit dem Testbild mit ([Predict_custom_yolo_model.py](Predict_custom_yolo_model.py))
 
+# Beispielhafte Ergbenisse mit dem Custom Model
+
+
+![Dog detection with the custom yolo model](result_test_dogs_custom_yolo.jpg)
+Thanks for the picture to 'Blue Bird' on [Pexels](https://www.pexels.com/photo/happy-owner-between-bird-dog-and-border-collie-on-meadow-7210349/)
 
 
