@@ -155,8 +155,13 @@ Mit diesen Angaben können die einzelnen Datensätze im YOLO-Format generiert we
 
 # Beispielhafte Ergbenisse mit dem Custom Model
 
+Für einen Produktiveinsatz muss das Model noch besser finegetuned und angepasst werden, hier sind jedoch ein paar Ergebnisse mit dem selbst trainierten Model abgebildet:
 
-![Dog detection with the custom yolo model](result_test_dogs_custom_yolo.jpg)
+![Dog detection 1 with the custom yolo model](result_test_dogs_custom_yolo.jpg)
 Thanks for the picture to 'Blue Bird' on [Pexels](https://www.pexels.com/photo/happy-owner-between-bird-dog-and-border-collie-on-meadow-7210349/)
 
+![Dog detection 2 with the custom yolo model](test_image_2.jpg)
+Thanks for the picture to 'MAEO Photography' on [Pexels](https://www.pexels.com/de-de/foto/nahaufnahmefoto-des-hundes-2685231/)
 
+![Dog detection 3 with the custom yolo model](test_image_3.jpg)
+Thanks for the picture to 'Fernelis Lajara' on [Pexels](https://www.pexels.com/de-de/foto/golden-retriever-25372314/)
