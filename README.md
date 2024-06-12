@@ -165,3 +165,12 @@ Thanks for the picture to 'MAEO Photography' on [Pexels](https://www.pexels.com/
 
 ![Dog detection 3 with the custom yolo model](test_image_3.jpg)
 Thanks for the picture to 'Fernelis Lajara' on [Pexels](https://www.pexels.com/de-de/foto/golden-retriever-25372314/)
+
+
+# Dataset Reference
+
+Primary:
+  Aditya Khosla, Nityananda Jayadevaprakash, Bangpeng Yao and Li Fei-Fei. Novel dataset for Fine-Grained Image Categorization. First Workshop on Fine-Grained Visual Categorization (FGVC), IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2011.  [pdf](http://people.csail.mit.edu/khosla/papers/fgvc2011.pdf)  [poster](http://vision.stanford.edu/documents/KhoslaJayadevaprakashYaoFeiFei_FGVC2011.pdf)  [BibTex](http://vision.stanford.edu/bibTex/KhoslaJayadevaprakashYaoFeiFei_FGVC2011.bib)
+
+Secondary:
+  J. Deng, W. Dong, R. Socher, L.-J. Li, K. Li and L. Fei-Fei, ImageNet: A Large-Scale Hierarchical Image Database. IEEE Computer Vision and Pattern Recognition (CVPR), 2009.  [pdf](http://www.image-net.org/papers/imagenet_cvpr09.pdf)  [BibTex](http://www.image-net.org/papers/imagenet_cvpr09.bib)

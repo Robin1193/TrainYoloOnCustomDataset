@@ -168,3 +168,4 @@ Config.yaml
 .DS_Store
 runs/
 *.pt
+*.pptx
